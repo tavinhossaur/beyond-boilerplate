@@ -1,51 +1,56 @@
 # Beyond Boilerplate
 
-Beyond Boilerplate is a Java framework designed to facilitate the creation of modular software architectures using the concept of components and ports. It provides abstract classes and interfaces to define components, their interfaces, and various types of communication ports, enabling flexible and decoupled system design.
-
-## Features
-- Abstract base classes for components and ports
-- Support for standard, broadcast, and non-component ports
-- Easy connection and disconnection between components
-- Designed for extensibility and integration
+Beyond Boilerplate is a simple "framework" designed to facilitate the creation of modular software architectures using the concept of components and ports. It provides abstract classes and interfaces to define components, their interfaces, and various types of communication ports, enabling flexible and decoupled system design.
 
 ## Project Structure
+
 - `provided/`: Contains the main interfaces and abstract classes for components and ports
 - `required/`: Contains abstract implementations for different types of output ports (standard, broadcast, non-component)
 
 ## Getting Started
 
 ### Prerequisites
-- Java 17 or higher
-- Maven
+
+- Java 17+
+- Maven 3.6+
 
 ### Installation
-Clone the repository and build the project using Maven:
+
+To use this component in your own Maven project, add the following to your `pom.xml`:
+
+- Add the GitHub Packages repository:
+
+```xml
+<repositories>
+  <repository>
+    <id>beyond-boilerplate</id>
+    <url>https://maven.pkg.github.com/tavinhossaur/beyond-boilerplate</url>
+  </repository>
+</repositories>
+```
+
+- Add the dependency:
+
+```xml
+<dependency>
+  <groupId>com.ifsp.tavinho</groupId>
+  <artifactId>beyond-boilerplate</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```
+
+### Build
+
 ```bash
 mvn clean install
 ```
 
-### Usage
-Extend the provided abstract classes to define your own components and ports. Example:
+### Run Tests
 
-```java
-public class MyComponent extends ComponentInterface {
-    @Override
-    public void initialize() {
-        // Initialize ports and component logic
-    }
-}
+```bash
+mvn test
 ```
-
-Connect ports between components using the provided methods:
-```java
-componentA.connect(componentB.getPort("portId"), "myPortId");
-```
-
-## Testing
-JUnit Jupiter is included as a test dependency. You can add your own tests under `src/test/java`.
 
 ## License
-This project is licensed under the MIT License.
 
-## Repository
-[https://github.com/tavinhossaur/beyond-boilerplate](https://github.com/tavinhossaur/beyond-boilerplate) 
+This project is licensed under the MIT License.
